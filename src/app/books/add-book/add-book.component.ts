@@ -8,6 +8,8 @@ import { BookService } from '../book.service';
 })
 export class AddBookComponent implements OnInit {
   publishers: any;
+  response: any;
+  books: any;
 
   constructor(private bookService: BookService) { }
 
@@ -18,8 +20,9 @@ export class AddBookComponent implements OnInit {
     });
   }
 
-  onSubmit(form): void {
-    this.bookService.addBook(form.value);
+  onSubmit(form){
+    this.response = this.bookService.addBook(form.value);
+    console.log(this.response);
   }
 
 }
