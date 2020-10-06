@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BookItemComponent } from './book-item/book-item.component';
@@ -14,7 +15,8 @@ import { DeleteBookComponent } from './delete-book/delete-book.component';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: []
 })
