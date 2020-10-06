@@ -6,8 +6,10 @@ import { BookListComponent } from './books/book-list/book-list.component';
 
 const routes: Routes = [
   {path: '', component: BookListComponent},
-  {path: 'livro/:id', component: BookItemComponent},
   {path: 'novo', component: AddBookComponent},
+  {path: 'detalhes/:id', component: BookItemComponent},  
+  {path: 'editar/:id', component: AddBookComponent},
+  {path: 'deletar/:id', component: AddBookComponent},
 ];
 
 @NgModule({

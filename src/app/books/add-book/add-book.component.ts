@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-book',
@@ -11,18 +12,17 @@ export class AddBookComponent implements OnInit {
   response: any;
   books: any;
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
     this.bookService.getPublishers().subscribe( (publishers:any) => {
-      console.log(publishers)
       this.publishers = publishers;
     });
   }
 
   onSubmit(form){
-    this.response = this.bookService.addBook(form.value);
-    console.log(this.response);
+    this.bookService.addBook(form.value);
+    this.router.navigate(['/'])
   }
 
 }

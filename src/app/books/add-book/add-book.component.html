@@ -7,15 +7,16 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <input type="text" class="form-control" id="txtTitle" name="title" placeholder="Título" #titleCtrl="ngModel" ngModel required>
-      <span *ngIf="titleCtrl.status === 'INVALID' && titleCtrl.touched">* Campo Obrigatório!</span>
+      <span class="text-danger" *ngIf="titleCtrl.status === 'INVALID' && titleCtrl.touched">* Por favor, insira o título do livro!</span>
     </div>
     <div class="form-group col-md-6">
-      <select id="slcPublisher" class="form-control" name="publisher" ngModel>
+      <select id="slcPublisher" class="form-control" name="publisher" #publisherCtrl="ngModel" ngModel required >
           <option selected disabled>Editora</option>
           <option *ngFor="let publisher of publishers" value="{{publisher.id}}">
               {{publisher.name}}
           </option>
       </select>
+      <span class="text-danger" *ngIf="publisherCtrl.status === 'INVALID' && publisherCtrl.touched">* Por favor, selecione a editora!</span>
     </div>
   </div>
   <div class="form-group">
