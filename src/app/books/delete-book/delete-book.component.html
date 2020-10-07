@@ -1,4 +1,4 @@
-<div class="row mt-5">
+<div class="row mt-5 pb-3" style="border-bottom: solid 1px #ccc;">
     <div class="col-6">
         <h1 class="h3">Deletar Livro</h1>
     </div>
@@ -6,7 +6,7 @@
       <a routerLink="/" class="btn btn-dark" routerLinkActive="active">VOLTAR</a>
     </div>
   </div>
-  <div id="container-delete" class="row mt-5">
+  <div class="row mt-4" *ngIf="deleted == false">
       <div class="col-12">
           <h4>Deseja realmente deletar o livro?</h4>
           <button (click)="onClick()" class="btn btn-danger" routerLinkActive="active">SIM</button>

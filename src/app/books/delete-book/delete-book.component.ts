@@ -10,11 +10,12 @@ import { BookService } from '../book.service';
 export class DeleteBookComponent implements OnInit {
   bookId: string;
   isSuccess: boolean;
+  deleted: boolean;
 
   constructor(private activeRouter: ActivatedRoute, private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
-    
+    this.deleted = false;
   }
   
   onClick() { 
@@ -23,7 +24,7 @@ export class DeleteBookComponent implements OnInit {
       try {
         this.bookService.deleteBook(this.bookId);
         this.isSuccess = true;
-        
+        this.deleted = true;
       } catch (error) {
         this.isSuccess = true;
       }

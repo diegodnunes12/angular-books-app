@@ -9,7 +9,7 @@
   <form (ngSubmit)="onSubmit(updateBookForm)" #updateBookForm="ngForm">
     <div class="form-row mt-2">
       <div class="form-group col-md-6">
-        <input type="text" value="{{title}}" class="form-control" id="txtTitle" name="title" placeholder="Título" #titleCtrl="ngModel" ngModel required>
+        <input type="text" class="form-control" id="txtTitle" name="title" placeholder="Título" #titleCtrl="ngModel" ngModel required>
       </div>
       <div class="form-group col-md-6">
         <select id="slcPublisher" class="form-control" name="publisher" #publisherCtrl="ngModel" ngModel required >
@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="form-group">
-        <textarea class="form-control" id="txtDescription" value={{description}} name="descripton" placeholder="Descrição e resenha" ngModel></textarea>
+        <textarea class="form-control" id="txtDescription" value="{{description}}" name="description" placeholder="Descrição e resenha" ngModel></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Salvar</button>
   </form>

@@ -15,6 +15,10 @@ export class BookService {
     return this.http.get(`http://localhost:53050/api/publishers`);
   }
 
+  getPublisher(id){
+    return this.http.get(`http://localhost:53050/api/publishers/${id}`);
+  }
+
   getBooks(){
     return this.http.get(this.URL_BOOK);
   }

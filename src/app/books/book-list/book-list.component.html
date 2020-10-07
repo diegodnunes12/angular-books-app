@@ -19,10 +19,11 @@
             <tbody>
               <tr *ngFor="let book of books">
                 <td>{{book.title}}</td>
-                <td>{{book.publisherId}}</td>
+                <td>{{book.publisher}}</td>
                 <td>
-                  <a routerLink="/editar/{{book.id}}" class="btn btn-info btn-sm">Editar</a>
-                  <a href="/deletar/{{book.id}}" class="btn btn-danger btn-sm ml-2">Deletar</a>
+                  <a routerLink="/detalhes/{{book.id}}" class="btn btn-primary btn-sm">Detalhes</a>
+                  <a routerLink="/editar/{{book.id}}" class="btn btn-info btn-sm ml-2">Editar</a>
+                  <a routerLink="/deletar/{{book.id}}" class="btn btn-danger btn-sm ml-2">Deletar</a>
                 </td>
               </tr>
             </tbody>

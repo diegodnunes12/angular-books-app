@@ -21,25 +21,27 @@ export class UpdateBookComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.bookService.getPublishers().subscribe( (publishers:any) => {
+      this.publishers = publishers;
+    });
+    
     this.activeRouter.paramMap.subscribe( params => {
       this.bookId = params.get('id');
       
       this.bookService.getBook(this.bookId)
         .subscribe( (book: any) => {
           this.title = book['title'];
-          console.log(book['publisherId']);
           this.publisherId = book['publisherId'];
           this.description = book['description'];
         } );
 
-    } );
-
-    this.bookService.getPublishers().subscribe( (publishers:any) => {
-      this.publishers = publishers;
-    });
+    } );    
   }
 
   onSubmit(form){
+    
+    console.log(form.value)
+    console.log(this.bookId)
     try {
       this.bookService.updateBook(form.value, this.bookId);
       this.isSuccess = true;
