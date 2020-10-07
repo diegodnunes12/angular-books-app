@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import {Router} from "@angular/router";
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-add-book',
@@ -25,6 +26,7 @@ export class AddBookComponent implements OnInit {
     try {
       this.bookService.addBook(form.value);
       this.isSuccess = true;
+      form.resetForm();
     } catch (error) {
       this.isSuccess = false;
     }

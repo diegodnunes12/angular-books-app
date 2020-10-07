@@ -39,9 +39,6 @@ export class UpdateBookComponent implements OnInit {
   }
 
   onSubmit(form){
-    
-    console.log(form.value)
-    console.log(this.bookId)
     try {
       this.bookService.updateBook(form.value, this.bookId);
       this.isSuccess = true;
