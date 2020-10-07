@@ -9,16 +9,24 @@ import { BookService } from '../book.service';
 })
 export class DeleteBookComponent implements OnInit {
   bookId: string;
+  isSuccess: boolean;
 
   constructor(private activeRouter: ActivatedRoute, private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
-    this.activeRouter.paramMap.subscribe( params => {
-      this.bookId = params.get('id');
-      
-      this.bookService.deleteBook(this.bookId);
-
-    } );
+    
   }
-
+  
+  onClick() { 
+    this.activeRouter.paramMap.subscribe( params => {
+      this.bookId = params.get('id');      
+      try {
+        this.bookService.deleteBook(this.bookId);
+        this.isSuccess = true;
+        
+      } catch (error) {
+        this.isSuccess = true;
+      }
+    } );
+  } 
 }

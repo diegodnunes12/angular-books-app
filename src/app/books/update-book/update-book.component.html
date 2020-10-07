@@ -1,13 +1,15 @@
-<div class="row">
-    <div class="col-12">
-        <h1>Alterar Livro</h1>
-    </div>
+<div class="row mt-5">
+  <div class="col-6">
+      <h1 class="h3">Alterar Livro</h1>
   </div>
+  <div class="col-6 text-right">
+    <a routerLink="/" class="btn btn-dark" routerLinkActive="active">VOLTAR</a>
+  </div>
+</div>
   <form (ngSubmit)="onSubmit(updateBookForm)" #updateBookForm="ngForm">
-    <div class="form-row">
+    <div class="form-row mt-2">
       <div class="form-group col-md-6">
         <input type="text" value="{{title}}" class="form-control" id="txtTitle" name="title" placeholder="Título" #titleCtrl="ngModel" ngModel required>
-        <span class="text-danger" *ngIf="titleCtrl.status === 'INVALID' && titleCtrl.touched">* Por favor, insira o título do livro!</span>
       </div>
       <div class="form-group col-md-6">
         <select id="slcPublisher" class="form-control" name="publisher" #publisherCtrl="ngModel" ngModel required >
@@ -15,11 +17,28 @@
                 {{publisher.name}}
             </option>
         </select>
-        <span class="text-danger" *ngIf="publisherCtrl.status === 'INVALID' && publisherCtrl.touched">* Por favor, selecione a editora!</span>
       </div>
     </div>
     <div class="form-group">
         <textarea class="form-control" id="txtDescription" value={{description}} name="descripton" placeholder="Descrição e resenha" ngModel></textarea>
     </div>
-    <button [disabled]="updateBookForm.status === 'INVALID'" type="submit" class="btn btn-primary">Salvar</button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
   </form>
+  <div class="mt-4">
+    <div *ngIf="isSuccess == true">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Alteração realizada com sucesso!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf="isSuccess == false">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Não foi possível atualizar o livro. Por favor, tente novamente!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>

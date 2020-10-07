@@ -1,10 +1,13 @@
-<div class="row">
-  <div class="col-12">
-      <h1>Cadastrar Livro</h1>
+<div class="row mt-5">
+  <div class="col-6">
+      <h1 class="h3">Cadastrar Livro</h1>
+  </div>
+  <div class="col-6 text-right">
+    <a routerLink="/" class="btn btn-dark" routerLinkActive="active">VOLTAR</a>
   </div>
 </div>
 <form (ngSubmit)="onSubmit(addNewBookForm)" #addNewBookForm="ngForm">
-  <div class="form-row">
+  <div class="form-row mt-2">
     <div class="form-group col-md-6">
       <input type="text" class="form-control" id="txtTitle" name="title" placeholder="Título" #titleCtrl="ngModel" ngModel required>
       <span class="text-danger" *ngIf="titleCtrl.status === 'INVALID' && titleCtrl.touched">* Por favor, insira o título do livro!</span>
@@ -24,3 +27,21 @@
   </div>
   <button [disabled]="addNewBookForm.status === 'INVALID'" type="submit" class="btn btn-primary">Salvar</button>
 </form>
+<div class="mt-4">
+  <div *ngIf="isSuccess == true">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      Cadastro realizado com sucesso!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="isSuccess == false">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      Não foi possível cadastrar o livro. Por favor, tente novamente!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>

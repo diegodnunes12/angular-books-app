@@ -15,6 +15,7 @@ export class UpdateBookComponent implements OnInit {
   publishers: any;
   description: any;
   id: any;
+  isSuccess: boolean;
 
   constructor(private activeRouter: ActivatedRoute, private bookService: BookService, private router: Router) { }
 
@@ -39,9 +40,12 @@ export class UpdateBookComponent implements OnInit {
   }
 
   onSubmit(form){
-    console.log(this.bookId)
-    this.bookService.updateBook(form.value, this.bookId);
-    this.router.navigate(['/'])
+    try {
+      this.bookService.updateBook(form.value, this.bookId);
+      this.isSuccess = true;
+    } catch (error) {
+      this.isSuccess = false;
+    }
   }
 
 }

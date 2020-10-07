@@ -11,6 +11,7 @@ export class AddBookComponent implements OnInit {
   publishers: any;
   response: any;
   books: any;
+  isSuccess: Boolean;
 
   constructor(private bookService: BookService, private router: Router) { }
 
@@ -21,8 +22,13 @@ export class AddBookComponent implements OnInit {
   }
 
   onSubmit(form){
-    this.bookService.addBook(form.value);
-    this.router.navigate(['/'])
+    try {
+      this.bookService.addBook(form.value);
+      this.isSuccess = true;
+    } catch (error) {
+      this.isSuccess = false;
+    }
+    
   }
 
 }
